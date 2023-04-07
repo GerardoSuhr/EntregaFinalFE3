@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { links } from "./utils/links";
 import image from "../assets/doctor.jpg"
 import { FaStar, FaRegStar} from 'react-icons/fa';
+import "./Card.css";
 
 const Card = ({ name, username, id }) => {
   const [isFav, setIsFav] = useState(false);

@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import Dentista from "./Routes/Dentista";
+import Dentista from "./Routes/Dentist";
 import Favs from "./Routes/Favs";
 import Home from "./Routes/Home";
 import Contact from "./Routes/Contact";
