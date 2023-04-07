@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import Detail from "./Routes/Detail";
+import Dentista from "./Routes/Dentista";
 import Favs from "./Routes/Favs";
 import Home from "./Routes/Home";
 import Contact from "./Routes/Contact";
@@ -17,7 +17,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path={home.path} element={<Home />} />
-        <Route path={`${dentista.path}/:id`} element={<Detail />} />
+        <Route path={`${dentista.path}/:id`} element={<Dentista />} />
         <Route path={favs.path} element={<Favs />} />
         <Route path={contacto.path} element={<Contact />} />
         <Route path="*" element={<NotFound />} />

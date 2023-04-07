@@ -5,7 +5,7 @@ export const links = {
     },
     dentista: {
       name: "Dentista",
-      path: "/detail",
+      path: "/dentista",
     },
     contacto: {
       name: "Contacto",

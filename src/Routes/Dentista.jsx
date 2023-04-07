@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEstadosGlobalesContext } from "../Components/utils/global.context";
 
-const Detail = () => {
+const Dentista = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   const { odontologos, theme } = useEstadosGlobalesContext();
   const { id } = useParams();
@@ -18,7 +18,7 @@ const Detail = () => {
 
   return (
     <main className={theme.color}>
-      <h1>Detail Dentist id </h1>
+      <h1>Detail Dentist {id} </h1>
       {odontologo && (
         <table>
           <thead>
@@ -44,4 +44,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default Dentista;
