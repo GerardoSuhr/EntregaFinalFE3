@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./utils/links";
+import image from "../assets/doctor.jpg"
+import { FaStar, FaRegStar} from 'react-icons/fa';
 
 const Card = ({ name, username, id }) => {
   const [isFav, setIsFav] = useState(false);
@@ -30,16 +32,15 @@ const Card = ({ name, username, id }) => {
   return (
     <div className="card">
       <Link to={`${links.dentista.path}/${id}`}>
-        <img src="../../public/images/doctor.jpg" alt={username} />
+        <img src={image} alt={username} />
         <h4>{name}</h4>
         <p>{username}</p>
       </Link>
       <button onClick={handleFavs} className="favButton">
-        <span className={`material-symbols-outlined ${isFav ? "fav" : ""}`}>
-          favorite
-        </span>
-        {`${!isFav ? "Add to fav" : "Remove from fav"}`}
-      </button>
+  
+  {!isFav ? 
+   <FaRegStar/>   : <FaStar/> }
+</button>
     </div>
   );
 };
