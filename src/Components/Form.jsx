@@ -6,9 +6,8 @@ const Form = () => {
 
 const [userName, setUserName] = useState("")
 const [userEmail, setUserEmail] = useState("")
-const [isErrorName, setIsErrorName] = useState(false);
-const [isErrorEmail, setisErrorEmail] = useState(false);
-const [showCard, setShowCard] = useState(false);
+const [isErrorInfo, setIsErrorInfo] = useState(false);
+const [showMessage, setshowMessage] = useState(false);
 
 const isValidName = userName.length > 4;
 function isValidEmail() {
@@ -16,18 +15,12 @@ function isValidEmail() {
   return emailFormat.test(userEmail);
 }
 
-
-
-  const handleSubmit = (e) => {
+  const sendContactInfo = (e) => {
     e.preventDefault();
-    // fijarse como arreglarlo para que funcione
-
     if (isValidName && isValidEmail()) {
-    <p>Gracias {userName}, te contactaremos cuanto antes via mail</p>
-  } else if (isValidName) {
-    <p>Por favor ingresa un email válido</p>
+      setshowMessage(true)
   } else {
-    <p>Por favor ingresa un nombre de más de 5 caracteres</p>
+    setIsErrorInfo(true)
   }
 };
 
@@ -40,29 +33,25 @@ function isValidEmail() {
   };
 
   return (
-    <div>
-      <form>
-        <input type="text" name="userName" placeholder="Full name" onChange={(e) => setUserName({...userName, [e.target.name]: e.target.value})}/>
-        <input type="email" name="userEmail" placeholder="Email" onChange={(e) => setUserEmail({...userEmail, [e.target.name]: e.target.value})}/>
-        <button onClick={handleSubmit}>Send</button>
+
+    <>
+      <form onSubmit={sendContactInfo} >
+        <div>
+        <input type="text" name="userName" placeholder="Full name" onChange={onNameChange}/>
+        <input type="email" name="userEmail" placeholder="Email" onChange={onEmailChange}/>
+        </div>
+        <button type="submit">Send</button>
       </form>
-    </div>
+  
+      {isErrorInfo && <p>Por favor verifique su información nuevamente</p>}
+
+      {showMessage &&(
+      <p>Gracias {userName}, te conctactaremos cuanto antes via email</p>
+      )}
+</>
+  
   );
 
 
 }
 export default Form;
-
-
-
-/*
-  return (
-    <div>
-      <form>
-        <input type="text" name="userName" placeholder="Full name" onChange={(e) => setUser({...user, [e.target.name]: e.target.value})}/>
-        <input type="email" name="userEmail" placeholder="Email" onChange={(e) => setUser({...user, [e.target.name]: e.target.value})}/>
-        <button onClick={handleSubmit}>Send</button>
-      </form>
-    </div>
-  );
-  */
